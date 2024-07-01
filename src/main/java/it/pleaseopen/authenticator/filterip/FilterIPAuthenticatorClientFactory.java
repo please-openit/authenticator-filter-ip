@@ -23,7 +23,7 @@ public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFa
 
     @Override
     public String getReferenceCategory() {
-        return null;
+        return "ip";
     }
 
     @Override

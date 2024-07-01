@@ -19,7 +19,7 @@ public class FilterIPAuthenticatorFactory implements AuthenticatorFactory {
 
     @Override
     public String getReferenceCategory() {
-        return null;
+        return "ip";
     }
 
     @Override
