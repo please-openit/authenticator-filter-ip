@@ -10,10 +10,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFactory {
     @Override
@@ -51,7 +48,7 @@ public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFa
 
     @Override
     public Set<String> getProtocolAuthenticatorMethods(String loginProtocol) {
-        return null;
+        return Collections.emptySet();
     }
 
     public static final AuthenticationExecutionModel.Requirement[] REQUIREMENT_CHOICES = {
@@ -113,6 +110,6 @@ public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFa
 
     @Override
     public String getId() {
-        return "filterIPClient";
+        return "POIT-auth-IP-range-client";
     }
 }

@@ -82,6 +82,6 @@ public class FilterIPAuthenticatorFactory implements AuthenticatorFactory {
 
     @Override
     public String getId() {
-        return "filterIP";
+        return "POIT-auth-IP-range";
     }
 }

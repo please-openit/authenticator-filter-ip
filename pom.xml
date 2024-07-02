@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>please-open.it</groupId>
-	<artifactId>authenticator-filter-idp</artifactId>
+	<artifactId>authenticator-filter-ip</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
