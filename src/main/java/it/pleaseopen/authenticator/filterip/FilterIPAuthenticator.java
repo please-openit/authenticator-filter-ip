@@ -26,15 +26,9 @@ public class FilterIPAuthenticator implements Authenticator {
 
     @Override
     public void authenticate(AuthenticationFlowContext context) {
-        // Because we are behind a reverse proxy
-        String ipSource = context.getHttpRequest().getHttpHeaders().getHeaderString("X-Forwarded-For");
-        // if we are in direct, without a proxy
-        if(ipSource == null){
-            ipSource = context.getConnection().getRemoteAddr();
-        }
-
+        String ipSource = context.getConnection().getRemoteAddr();
+        LOG.info("Filter IP - source : "+ipSource);
         AuthenticatorConfigModel authenticatorConfig = context.getAuthenticatorConfig();
-        authenticatorConfig.getConfig();
         List<String> allowedRanges = Arrays.asList(authenticatorConfig.getConfig().get("Allowed IPs").split("##"));
 
         for(String range: allowedRanges){
@@ -45,6 +39,7 @@ public class FilterIPAuthenticator implements Authenticator {
                     long ipToTest = ipToLong(InetAddress.getByName(ipSource));
                     if(ipToTest >= ipLo && ipToTest <= ipHi){
                         context.success();
+                        return;
                     }
                 } catch (UnknownHostException e) {
                     LOG.error("unable to decode ip address", e);
@@ -55,6 +50,7 @@ public class FilterIPAuthenticator implements Authenticator {
                     long ipToTest = ipToLong(InetAddress.getByName(ipSource));
                     if(ipToTest == ipToLong(InetAddress.getByName(range))){
                         context.success();
+                        return;
                     }
                 } catch (UnknownHostException e) {
                     LOG.error("unable to decode ip address", e);
