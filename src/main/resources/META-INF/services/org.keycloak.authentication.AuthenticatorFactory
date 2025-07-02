@@ -1,1 +1,2 @@
 it.pleaseopen.authenticator.filterip.FilterIPAuthenticatorFactory
+it.pleaseopen.authenticator.filterip.FilterIPConditionalAuthenticatorFactory
