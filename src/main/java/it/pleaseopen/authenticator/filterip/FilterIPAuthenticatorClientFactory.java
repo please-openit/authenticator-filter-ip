@@ -42,11 +42,6 @@ public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFa
     }
 
     @Override
-    public Map<String, Object> getAdapterConfiguration(ClientModel client) {
-        return null;
-    }
-
-    @Override
     public Set<String> getProtocolAuthenticatorMethods(String loginProtocol) {
         return Collections.emptySet();
     }
@@ -111,5 +106,11 @@ public class FilterIPAuthenticatorClientFactory implements ClientAuthenticatorFa
     @Override
     public String getId() {
         return "POIT-auth-IP-range-client";
+    }
+
+    @Override
+    public Map<String, Object> getAdapterConfiguration(KeycloakSession session, ClientModel client) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAdapterConfiguration'");
     }
 }
