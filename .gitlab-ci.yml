@@ -60,7 +60,7 @@ deploy:tag:
   except:
     - branches
   script:
-    - "mvn install -B"
+    - "mvn install -B -Drevision=26.6.1 -Djava.version=21"
   artifacts:
     paths:
       - ./deployments/
@@ -72,4 +72,4 @@ build-job:
   except:
     - tags
   script:
-    - "mvn install -B"
+    - "mvn install -B  -Drevision=26.6.1 -Djava.version=21"
